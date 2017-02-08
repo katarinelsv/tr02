@@ -1,0 +1,16 @@
+#include <stdio.h>
+int op1, saida;
+
+void  main( )
+{
+      saida =0; 
+      op1 = 10;
+      printf("movimento de dados \n");	
+   
+      asm(".intel_syntax noprefix");
+      asm ("mov %eax, op1");
+      asm ("shr %eax, 2");
+      asm ("mov saida, %eax");
+      asm(".att_syntax noprefix");
+      printf("Valor de saida: %u \n", saida);	
+ }
