@@ -1,0 +1,30 @@
+/* Autor: Katarine*/
+
+#include <stdio.h>
+int a,b, tot;
+
+void  main( )
+{
+        tot =0; 
+        a = 10;
+        b = 4;
+        printf("Deslocamento de Bits \n");	
+        printf("Valor atual de A:  \n",a);	
+        printf("Valor atual de B: \n",b);	
+        
+        asm(".intel_syntax noprefix");
+        asm ("mov %eax, a");
+        asm ("mov %ebx, b");
+        asm ("shr %eax, 2");
+        asm ("shr %ebx, 1");
+        asm ("mov a, %eax");
+        asm ("add %eax, %ebx");
+        asm ("mov tot, %eax");
+        asm ("mov b, %ebx");
+        asm(".att_syntax noprefix");
+  
+  
+        printf("Valor de A: %u \n", a);	
+        printf("Valor de B: %u \n", b);	
+        printf("Valor de Total: %u \n", tot);	
+}
